@@ -15,4 +15,8 @@ public interface carService {
 	public Car getCarDetailsById(int id) throws Exception;
 	public Void updateCarDetailsById(int id,Car c) throws Exception;
 	public boolean validateUser(String username,String password) throws Exception;
+	public boolean addUser(User u) throws Exception;
+	public boolean addCar(Car c) throws Exception;
+	public boolean deleteUser(int id) throws Exception;
+	public boolean deleteCar(int id) throws Exception;
 }

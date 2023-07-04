@@ -40,7 +40,25 @@ public class carServiceImpl implements carService{
 	public boolean validateUser(String username, String password) throws Exception {
 		return cd.validateUser(username, password);
 	}
+
+	@Override
+	public boolean addUser(User u) throws Exception {
+		return cd.addUser(u);
+	}
 	
-	
+	@Override
+	public boolean addCar(Car c) throws Exception {
+		return cd.addCar(c);
+	}
+
+	@Override
+	public boolean deleteUser(int id) throws Exception {
+		return cd.deleteUser(id);
+	}
+
+	@Override
+	public boolean deleteCar(int id) throws Exception {
+		return cd.deleteCar(id);
+	}
 
 }

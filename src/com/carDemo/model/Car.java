@@ -5,18 +5,18 @@ public class Car {
 	private int carId;
 	private String carName;
 	private Double carPrice;
-	private int userId;
+	private int id;
 	
 	public Car() {
 		super();
 	}
 	
-	public Car(int carId, String carName, Double carPrice, int userId) {
+	public Car(int carId, String carName, Double carPrice, int id) {
 		super();
 		this.carId = carId;
 		this.carName = carName;
 		this.carPrice = carPrice;
-		this.userId = userId;
+		this.id = id;
 	}
 	
 	public int getCarId() {
@@ -37,16 +37,16 @@ public class Car {
 	public void setCarPrice(Double carPrice) {
 		this.carPrice = carPrice;
 	}
-	public int getUserId() {
-		return userId;
+	public int getid() {
+		return id;
 	}
-	public void setUser(int userId) {
-		this.userId = userId;
+	public void setUser(int id) {
+		this.id = id;
 	}
 	
 	@Override
 	public String toString() {
-		return "Car [carId=" + carId + ", carName=" + carName + ", carPrice=" + carPrice + ", userId=" + userId + "]";
+		return "Car [carId=" + carId + ", carName=" + carName + ", carPrice=" + carPrice + ", id=" + id + "]";
 	}
 	
 	
