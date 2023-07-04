@@ -1,6 +1,7 @@
 package com.carDemo.dao;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
@@ -83,5 +84,68 @@ public class carDaoImpl implements carDao{
 		
 		return status;
 	}
+
+	@Override
+	public boolean addUser(User u) throws Exception {
+		try {
+			userList.add(u);
+			return true;
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	@Override
+	public boolean addCar(Car c) throws Exception{
+		try {
+			carList.add(c);
+			return true;
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
+
+	@Override
+	public boolean deleteUser(int id) throws Exception {
+		try {
+			Iterator itr = userList.iterator();
+			  
+	        while (itr.hasNext()) {
+	            User x = (User)itr.next();
+	            if (x.getId() == id ) {
+	            	itr.remove();
+	            	return true;
+	            }
+	        }
+			return true;
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	@Override
+	public boolean deleteCar(int id) throws Exception {
+		try {
+			Iterator itr = carList.iterator();
+			  
+	        while (itr.hasNext()) {
+	            Car x = (Car)itr.next();
+	            if (x.getCarId() == id ) {
+	            	itr.remove();
+	            	return true;
+	            }
+	                
+	        }
+			return false;
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
 
 }

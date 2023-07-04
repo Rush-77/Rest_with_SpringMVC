@@ -40,6 +40,7 @@ public class carController {
 		List<User> userList = new ArrayList<>();
 		try {
 			userList = cs.getUserDetails();
+			System.out.println(userList);
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -79,16 +80,64 @@ public class carController {
 	
 	@RequestMapping(value="/updateCarDetailById/{id}",method=RequestMethod.PUT)
 	public String updateCarDetailById(@PathVariable(value="id") int id,@RequestBody Car c) {
-		String result = "Result awaited..!!";
 		try {
 			cs.updateCarDetailsById(id, c);
 		}catch(Exception e) {
-			result = "Fail to update.";
+			return "Fail to update.";
 		}
 		
 		return "Updated Succesfully..!!";
 	}
+		
+	@RequestMapping(value="/addCar",method=RequestMethod.POST)
+	public String addCar(@RequestBody Car c) {
+		try {
+			cs.addCar(c);
+		}catch(Exception e) {
+			return "Fail to add Car.";
+		}
+		
+		return "Car Added Succesfully..!!";
+	}
 	
+	@RequestMapping(value="/addUser",method=RequestMethod.POST)
+	public String addUser(@RequestBody User u) {
+		try {
+			cs.addUser(u);
+		}catch(Exception e) {
+			return "Fail to add User.";
+		}
+		
+		return "User Added Succesfully..!!";
+	}
 	
+	@RequestMapping(value="/deleteUser", method=RequestMethod.DELETE)
+	public String deleteUser(@RequestParam int id) {
+		try {
+			if(cs.deleteUser(id)) {
+				return "User Deleted Succesfully";
+			}else {
+				return "User not found";
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+			return "Fail to delete User.";
+		}
+		
+	}
 	
+	@RequestMapping(value="/deleteCar", method=RequestMethod.DELETE)
+	public String deleteCar(@RequestParam int id) {
+		try {
+			if(cs.deleteCar(id)) {
+				return "Car Deleted Succesfully";
+			}else {
+				return "Car not found";
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+			return "Fail to delete Car.";
+		}
+		
+	}
 }
